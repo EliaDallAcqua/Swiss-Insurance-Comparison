@@ -555,11 +555,11 @@
 
   // Booking form submission via FormSubmit.co AJAX endpoint
   var form = document.getElementById('booking-form');
-  var status = document.getElementById('form-status');
+  var formStatus = document.getElementById('form-status');
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    status.className = '';
-    status.style.display = 'none';
+    formStatus.className = '';
+    formStatus.style.display = 'none';
     var submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Wird gesendet...';
@@ -573,13 +573,13 @@
     })
     .then(function(response){ return response.json(); })
     .then(function(data){
-      status.textContent = 'Vielen Dank! Ihre Anfrage wurde übermittelt. Wir melden uns in Kürze bei Ihnen.';
-      status.className = 'success';
+      formStatus.textContent = 'Vielen Dank! Ihre Anfrage wurde übermittelt. Wir melden uns in Kürze bei Ihnen.';
+      formStatus.className = 'success';
       form.reset();
     })
     .catch(function(err){
-      status.textContent = 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ed@simplecare.ch.';
-      status.className = 'error';
+      formStatus.textContent = 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ed@simplecare.ch.';
+      formStatus.className = 'error';
     })
     .finally(function(){
       submitBtn.disabled = false;

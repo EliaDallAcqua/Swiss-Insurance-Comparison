@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simplecare — Kostenlose Krankenkassen-Beratung Schweiz</title>
+<meta name="description" content="Sparen Sie bei Ihrer Krankenkasse in der Schweiz. Kostenlose, unabhängige Beratung von Simplecare — unverbindlich und persönlich.">
+<style>
+  :root{
+    --navy: #0b2545;
+    --navy-light:#13315c;
+    --blue: #1d5fa8;
+    --blue-light:#2e7bd6;
+    --gold:#c9a24b;
+    --bg:#f6f8fb;
+    --text:#1c2733;
+    --muted:#5b6b7c;
+    --border:#e3e8ef;
+    --white:#ffffff;
+    --success:#1e7a4c;
+    --error:#b3331e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:15px 32px;border-radius:6px;font-weight:600;font-size:16px;
+    cursor:pointer;border:none;transition:all .2s ease;
+  }
+  .btn-primary{background:var(--gold);color:var(--navy);}
+  .btn-primary:hover{background:#d8b25c;transform:translateY(-1px);}
+  .btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5);}
+  .btn-outline:hover{border-color:var(--white);}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(201,162,75,.15);color:var(--gold);
+    padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;
+    letter-spacing:.3px;margin-bottom:20px;
+  }
+  .eyebrow::before{content:'●';font-size:8px;}
+
+  /* Header */
+  header{
+    background:var(--navy);
+    padding:18px 0;
+    position:sticky;top:0;z-index:100;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  header .container{display:flex;align-items:center;justify-content:space-between;}
+  .logo{color:var(--white);font-size:22px;font-weight:700;letter-spacing:.3px;}
+  .logo span{color:var(--gold);}
+  nav.header-nav{display:flex;align-items:center;gap:32px;}
+  nav.header-nav a.nav-link{color:rgba(255,255,255,.85);font-size:15px;font-weight:500;}
+  nav.header-nav a.nav-link:hover{color:var(--white);}
+  .header-cta{background:var(--gold);color:var(--navy);padding:11px 22px;border-radius:6px;font-weight:600;font-size:14px;}
+  .header-cta:hover{background:#d8b25c;}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 55%, #0e2a4d 100%);
+    color:var(--white);
+    padding:80px 0 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:'';position:absolute;right:-120px;top:-120px;width:420px;height:420px;
+    background:radial-gradient(circle, rgba(46,123,214,.35), transparent 70%);
+    border-radius:50%;
+  }
+  .hero-inner{position:relative;z-index:1;max-width:680px;}
+  .hero h1{font-size:44px;font-weight:800;line-height:1.15;margin-bottom:20px;letter-spacing:-.5px;}
+  .hero p.lead{font-size:18px;color:rgba(255,255,255,.85);margin-bottom:32px;max-width:560px;}
+  .hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+  .hero-meta{font-size:14px;color:rgba(255,255,255,.65);}
+  .hero-badges{display:flex;gap:28px;margin-top:44px;flex-wrap:wrap;}
+  .hero-badge{display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,.8);}
+  .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);}
+
+  /* Sections generic */
+  section{padding:88px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 56px;}
+  .section-head h2{font-size:32px;font-weight:800;color:var(--navy);margin-bottom:14px;letter-spacing:-.3px;}
+  .section-head p{color:var(--muted);font-size:16px;}
+  .tag{
+    display:inline-block;color:var(--blue);background:rgba(29,95,168,.08);
+    padding:5px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:16px;
+  }
+
+  /* Booking form */
+  .booking{background:var(--white);}
+  .booking-card{
+    max-width:760px;margin:0 auto;background:var(--white);
+    border:1px solid var(--border);border-radius:16px;
+    padding:48px;box-shadow:0 20px 50px -25px rgba(11,37,69,.2);
+  }
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+  .form-grid.full{grid-template-columns:1fr;}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:7px;}
+  .field input, .field select{
+    width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:8px;
+    font-size:15px;font-family:inherit;color:var(--text);background:var(--white);
+  }
+  .field input:focus, .field select:focus{outline:none;border-color:var(--blue);}
+  fieldset{border:none;margin-bottom:24px;}
+  fieldset legend{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:10px;padding:0;}
+  .checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;}
+  .checkbox-item{display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--text);}
+  .checkbox-item input{width:16px;height:16px;accent-color:var(--blue);}
+  .radio-row{display:flex;gap:24px;}
+  .radio-item{display:flex;align-items:center;gap:8px;font-size:14.5px;}
+  .family-section{display:none;}
+  .family-member-row{
+    display:flex;align-items:flex-end;gap:16px;margin-bottom:16px;
+    padding-bottom:16px;border-bottom:1px solid var(--border);
+  }
+  .family-member-row:last-child{border-bottom:none;}
+  .family-row-grid{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:0;}
+  .remove-family-member{
+    background:none;border:1px solid var(--border);color:var(--error);
+    border-radius:6px;padding:11px 14px;font-size:13px;cursor:pointer;white-space:nowrap;
+  }
+  .remove-family-member:hover{background:rgba(179,51,30,.06);}
+  .btn-add{
+    background:none;border:1.5px dashed var(--blue);color:var(--blue);
+    border-radius:8px;padding:11px 18px;font-size:14px;font-weight:600;
+    cursor:pointer;width:100%;
+  }
+  .btn-add:hover{background:rgba(29,95,168,.06);}
+  .form-note{font-size:13px;color:var(--muted);margin-top:18px;text-align:center;}
+  .booking-card .btn-primary{width:100%;padding:16px;font-size:16px;margin-top:6px;}
+  #form-status{margin-top:16px;padding:14px;border-radius:8px;font-size:14.5px;display:none;text-align:center;}
+  #form-status.success{display:block;background:rgba(30,122,76,.1);color:var(--success);}
+  #form-status.error{display:block;background:rgba(179,51,30,.1);color:var(--error);}
+
+  /* Why choose - cards */
+  .why{background:var(--bg);}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{
+    background:var(--white);border:1px solid var(--border);border-radius:12px;
+    padding:32px 28px;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 16px 32px -20px rgba(11,37,69,.25);}
+  .card-icon{
+    width:44px;height:44px;border-radius:10px;background:rgba(29,95,168,.1);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;
+  }
+  .card h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+  .card p{font-size:14.5px;color:var(--muted);}
+
+  /* Steps */
+  .steps{background:var(--white);}
+  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;}
+  .step{position:relative;padding-top:8px;}
+  .step-num{
+    width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--white);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;margin-bottom:18px;
+  }
+  .step h3{font-size:16.5px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+  .step p{font-size:14.5px;color:var(--muted);}
+
+  /* Savings CTA */
+  .savings{background:linear-gradient(135deg, var(--navy), var(--navy-light));color:var(--white);}
+  .savings-inner{display:flex;align-items:center;gap:56px;}
+  .savings-text{flex:1;}
+  .savings-text h2{font-size:30px;font-weight:800;margin-bottom:16px;}
+  .savings-text p{color:rgba(255,255,255,.8);font-size:16px;margin-bottom:24px;max-width:480px;}
+  .savings-list{list-style:none;margin-bottom:28px;}
+  .savings-list li{display:flex;align-items:center;gap:10px;font-size:15px;color:rgba(255,255,255,.9);margin-bottom:10px;}
+  .savings-list li::before{content:'✓';color:var(--gold);font-weight:700;}
+  .advisor-card{
+    flex:0 0 300px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;padding:32px;text-align:center;
+  }
+  .advisor-photo{
+    width:120px;height:120px;border-radius:50%;object-fit:cover;
+    margin:0 auto 16px;border:3px solid rgba(255,255,255,.25);
+  }
+  .advisor-card h4{font-size:16px;margin-bottom:4px;}
+  .advisor-card p{font-size:13.5px;color:rgba(255,255,255,.7);}
+
+  /* Trust */
+  .trust{background:var(--bg);}
+  .trust-inner{max-width:760px;margin:0 auto;text-align:center;}
+  .trust ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;text-align:left;max-width:640px;margin-left:auto;margin-right:auto;}
+  .trust li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text);}
+  .trust li::before{content:'✓';color:var(--blue);font-weight:800;flex:none;}
+
+  /* FAQ */
+  .faq{background:var(--white);}
+  .faq-list{max-width:760px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--border);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;padding:22px 0;
+    font-size:16px;font-weight:600;color:var(--navy);cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;font-family:inherit;
+  }
+  .faq-q::after{content:'+';font-size:22px;color:var(--blue);font-weight:400;}
+  .faq-item.open .faq-q::after{content:'−';}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .faq-a p{padding-bottom:22px;color:var(--muted);font-size:15px;max-width:680px;}
+  .faq-item.open .faq-a{max-height:300px;}
+
+  /* Final CTA */
+  .final-cta{background:var(--navy);color:var(--white);text-align:center;}
+  .final-cta h2{font-size:32px;font-weight:800;margin-bottom:14px;}
+  .final-cta p{color:rgba(255,255,255,.8);margin-bottom:32px;font-size:16px;}
+
+  footer{background:#081b34;color:rgba(255,255,255,.6);padding:32px 0;font-size:13.5px;text-align:center;}
+  footer .footer-brand{color:var(--white);font-weight:700;margin-bottom:6px;}
+
+  @media (max-width: 860px){
+    .hero h1{font-size:32px;}
+    .grid-3{grid-template-columns:1fr;}
+    .steps-grid{grid-template-columns:1fr 1fr;}
+    .savings-inner{flex-direction:column;}
+    .advisor-card{flex:none;width:100%;}
+    .form-grid{grid-template-columns:1fr;}
+    .checkbox-grid{grid-template-columns:1fr;}
+    .trust ul{grid-template-columns:1fr;}
+    .family-member-row{flex-direction:column;align-items:stretch;}
+    .family-row-grid{grid-template-columns:1fr;}
+    .remove-family-member{width:100%;}
+    nav.header-nav .nav-link{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">Simple<span>care</span></div>
+    <nav class="header-nav">
+      <a class="nav-link" href="#why">Vorteile</a>
+      <a class="nav-link" href="#steps">Ablauf</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="header-cta" href="#booking">Kostenlose Beratung</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="eyebrow">Kostenlos &amp; unverbindlich</div>
+    <h1>Sparen Sie bei Ihrer Krankenkasse in der Schweiz</h1>
+    <p class="lead">Erhalten Sie eine kostenlose, persönliche Krankenkassen-Analyse. Unsere Experten bei Simplecare helfen Ihnen, die passende Schweizer Police zu finden und Sparpotenzial zu erkennen — ganz unverbindlich.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#booking">Kostenlose Beratung anfragen</a>
+      <span class="hero-meta">15–30 Min. · Unabhängige Beratung</span>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge"><span class="dot"></span> Unabhängig</div>
+      <div class="hero-badge"><span class="dot"></span> Vertraulich</div>
+      <div class="hero-badge"><span class="dot"></span> Mehrsprachig</div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Jetzt anfragen</span>
+      <h2>Fordern Sie Ihre kostenlose Beratung an</h2>
+      <p>Ein Berater meldet sich in Kürze persönlich bei Ihnen.</p>
+    </div>
+
+    <div class="booking-card">
+      <form id="booking-form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="fullname">Vollständiger Name</label>
+            <input type="text" id="fullname" name="Name" required>
+          </div>
+          <div class="field">
+            <label for="dob">Geburtsdatum</label>
+            <input type="date" id="dob" name="Geburtsdatum" required>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="field">
+            <label for="plz">Postleitzahl</label>
+            <input type="text" id="plz" name="PLZ" required>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail-Adresse</label>
+            <input type="email" id="email" name="Email" required>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="field">
+            <label for="phone">Telefonnummer</label>
+            <input type="tel" id="phone" name="Telefon" required>
+          </div>
+          <div class="field">
+            <label for="household">Haushalt</label>
+            <select id="household" name="Haushalt">
+              <option value="Einzelperson">Einzelperson</option>
+              <option value="Familie">Familie</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="family-section" id="family-section">
+          <fieldset>
+            <legend>Angaben zu Ihren Familienmitgliedern</legend>
+            <div id="family-members-list"></div>
+            <button type="button" class="btn-add" id="add-family-member">+ Weiteres Familienmitglied hinzufügen</button>
+          </fieldset>
+        </div>
+
+        <fieldset>
+          <legend>Welche Policen haben Sie aktuell?</legend>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Grundversicherung"> Grundversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Zusatzversicherung"> Zusatzversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Zahnversicherung"> Zahnversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Unfallversicherung"> Unfallversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Reiseversicherung"> Reiseversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Andere"> Andere</label>
+          </div>
+        </fieldset>
+
+        <!-- FormSubmit.co configuration -->
+        <input type="hidden" name="_subject" value="Neue Terminanfrage — Simplecare Website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit" class="btn btn-primary">Kostenlose Beratung anfragen</button>
+        <div id="form-status"></div>
+        <p class="form-note">Ihre Angaben werden ausschliesslich zur Kontaktaufnahme bezüglich Ihrer Krankenkassen-Beratung verwendet und vertraulich behandelt.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Simplecare</span>
+      <h2>Warum Simplecare?</h2>
+      <p>Unabhängig, persönlich und kostenlos — das ist unser Versprechen.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">⚖️</div>
+        <h3>Unabhängige Beratung</h3>
+        <p>Wir vergleichen mehrere Schweizer Krankenkassen, damit Sie eine fundierte Entscheidung treffen können.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🆓</div>
+        <h3>Kostenlose Beratung</h3>
+        <p>Unser Service ist für Sie vollkommen kostenlos.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Persönliche Betreuung</h3>
+        <p>Sprechen Sie mit einem echten Berater, der Ihre individuelle Situation versteht.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <h3>Unterstützung beim Wechsel</h3>
+        <p>Wir begleiten Sie durch den gesamten Wechselprozess, falls Sie sich für einen Anbieterwechsel entscheiden.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Mehrsprachiger Service</h3>
+        <p>Wir bieten Beratung auf Deutsch, Englisch und weiteren Sprachen an.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <h3>Vertrauenswürdig &amp; vertraulich</h3>
+        <p>Ihre Daten bleiben privat und werden sorgfältig behandelt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="steps">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Ablauf</span>
+      <h2>So funktioniert's</h2>
+      <p>Vier einfache Schritte zu mehr Klarheit über Ihre Versicherung.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Angaben übermitteln</h3>
+        <p>Teilen Sie uns ein paar grundlegende Informationen zu Ihrer Person mit.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Persönliche Analyse</h3>
+        <p>Einer unserer Berater analysiert Ihre aktuelle Situation.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Optionen vergleichen</h3>
+        <p>Wir zeigen Ihnen passende Alternativen und mögliches Sparpotenzial.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Sicher entscheiden</h3>
+        <p>Sie entscheiden, ob Sie bei Ihrem Anbieter bleiben oder wechseln.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="savings">
+  <div class="container savings-inner">
+    <div class="savings-text">
+      <h2>Zahlen Sie zu viel?</h2>
+      <p>Viele Menschen in der Schweiz zahlen höhere Prämien als nötig. Eine persönliche Analyse hilft, Einsparpotenzial zu identifizieren — bei gleichbleibendem Versicherungsschutz.</p>
+      <ul class="savings-list">
+        <li>Kostenlose Analyse</li>
+        <li>Unverbindlich</li>
+        <li>Persönliche Beratung</li>
+      </ul>
+      <a class="btn btn-outline" href="#booking">Mein Sparpotenzial prüfen</a>
+    </div>
+    <div class="advisor-card">
+      <img src="Foto von mir.jpeg" alt="Ihr persönlicher Berater" class="advisor-photo">
+      <h4>Ihr persönlicher Berater</h4>
+      <p>Das Team hinter Simplecare</p>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="container trust-inner">
+    <span class="tag">Vertrauen</span>
+    <h2 style="font-size:30px;font-weight:800;color:var(--navy);margin-bottom:8px;">Warum Menschen Simplecare vertrauen</h2>
+    <p style="color:var(--muted);">Ein engagiertes Team mit Fokus auf Klarheit, Fairness und die beste Lösung für Ihre Bedürfnisse. Sie sprechen immer mit einer echten Person — nicht mit einem Callcenter.</p>
+    <ul>
+      <li>Erfahrene Schweizer Versicherungsberater</li>
+      <li>Transparente Empfehlungen</li>
+      <li>Persönliche Betreuung</li>
+      <li>Unterstützung bei Papierkram &amp; Wechsel</li>
+      <li>Fokus auf die beste Lösung für Sie</li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">FAQ</span>
+      <h2>Häufig gestellte Fragen</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Ist die Beratung wirklich kostenlos?</button>
+        <div class="faq-a"><p>Ja. Unsere Beratung ist für Sie zu 100% kostenlos und unverbindlich. Wir werden von den Versicherern vergütet, nicht von Ihnen.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Muss ich meine Krankenkasse wechseln?</button>
+        <div class="faq-a"><p>Nein. Sie erhalten eine Analyse und Empfehlungen und entscheiden am Ende selbst, ob und wohin Sie wechseln möchten.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Kann ich nur meine Grundversicherung wechseln?</button>
+        <div class="faq-a"><p>Ja, Grundversicherung und Zusatzversicherungen können unabhängig voneinander gewechselt werden — wir erklären Ihnen die jeweiligen Fristen und Bedingungen.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Bis wann muss ich meine Krankenkasse kündigen?</button>
+        <div class="faq-a"><p>Für die Grundversicherung gilt in der Regel der 30. November als Kündigungsfrist für einen Wechsel per 1. Januar. Für Zusatzversicherungen gelten oft andere Fristen — wir klären das gerne für Sie ab.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Wie lange dauert die Beratung?</button>
+        <div class="faq-a"><p>In der Regel 15–30 Minuten, telefonisch oder persönlich — ganz nach Ihren Wünschen.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Finden Sie heraus, ob Sie sparen können</h2>
+    <p>Erhalten Sie eine kostenlose, persönliche Beratung von Simplecare.</p>
+    <a class="btn btn-primary" href="#booking">Kostenlose Beratung anfragen</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">Simplecare</div>
+    <p>© 2026 Simplecare — Schweizer Krankenkassen-Beratung</p>
+    <p style="margin-top:6px;">Unabhängig · Vertraulich · Kostenlos</p>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+
+  // Family members: show extra fields when "Familie" is selected
+  var householdSelect = document.getElementById('household');
+  var familySection = document.getElementById('family-section');
+  var familyList = document.getElementById('family-members-list');
+  var addFamilyBtn = document.getElementById('add-family-member');
+  var familyIndex = 0;
+
+  function setFamilyFieldsRequired(row, required){
+    row.querySelectorAll('input').forEach(function(input){
+      if(required){ input.setAttribute('required', 'required'); }
+      else { input.removeAttribute('required'); }
+    });
+  }
+
+  function createFamilyRow(){
+    familyIndex++;
+    var row = document.createElement('div');
+    row.className = 'family-member-row';
+    row.innerHTML =
+      '<div class="family-row-grid">' +
+        '<div class="field"><label>Vorname</label><input type="text" name="Familienmitglied_' + familyIndex + '_Vorname"></div>' +
+        '<div class="field"><label>Nachname</label><input type="text" name="Familienmitglied_' + familyIndex + '_Nachname"></div>' +
+        '<div class="field"><label>Geburtsdatum</label><input type="date" name="Familienmitglied_' + familyIndex + '_Geburtsdatum"></div>' +
+      '</div>' +
+      '<button type="button" class="remove-family-member">Entfernen</button>';
+    familyList.appendChild(row);
+    setFamilyFieldsRequired(row, householdSelect.value === 'Familie');
+    row.querySelector('.remove-family-member').addEventListener('click', function(){
+      row.remove();
+    });
+  }
+
+  householdSelect.addEventListener('change', function(){
+    if(this.value === 'Familie'){
+      familySection.style.display = 'block';
+      if(familyList.children.length === 0){ createFamilyRow(); }
+      familyList.querySelectorAll('.family-member-row').forEach(function(row){ setFamilyFieldsRequired(row, true); });
+    } else {
+      familySection.style.display = 'none';
+      familyList.querySelectorAll('.family-member-row').forEach(function(row){ setFamilyFieldsRequired(row, false); });
+    }
+  });
+
+  addFamilyBtn.addEventListener('click', createFamilyRow);
+
+  // Booking form submission via FormSubmit.co AJAX endpoint
+  var form = document.getElementById('booking-form');
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.className = '';
+    status.style.display = 'none';
+    var submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet...';
+
+    var formData = new FormData(form);
+
+    fetch('https://formsubmit.co/ajax/ed@simplecare.ch', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+    .then(function(response){ return response.json(); })
+    .then(function(data){
+      status.textContent = 'Vielen Dank! Ihre Anfrage wurde übermittelt. Wir melden uns in Kürze bei Ihnen.';
+      status.className = 'success';
+      form.reset();
+    })
+    .catch(function(err){
+      status.textContent = 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ed@simplecare.ch.';
+      status.className = 'error';
+    })
+    .finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Kostenlose Beratung anfragen';
+    });
+  });
+</script>
+
+</body>
+</html>

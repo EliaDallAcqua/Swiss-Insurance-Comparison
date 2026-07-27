@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simplecare — Kostenlose Krankenkassen-Beratung Schweiz</title>
-<meta name="description" content="Sparen Sie bei Ihrer Krankenkasse in der Schweiz. Kostenlose, unabhängige Beratung von Simplecare — unverbindlich und persönlich.">
+<title>Simplecare — Ihre unabhängige Versicherungsberatung Schweiz</title>
+<meta name="description" content="Unabhängige Versicherungsberatung in der Schweiz — von Krankenkasse über Vorsorge bis Fahrzeugversicherung. Kostenlose, persönliche Beratung von Simplecare zum Thema Ihrer Wahl.">
 <style>
   :root{
-    --navy: #0b2545;
-    --navy-light:#13315c;
-    --blue: #1d5fa8;
-    --blue-light:#2e7bd6;
+    --navy: #123024;
+    --navy-light:#1c4a35;
+    --blue: #1f8a4c;
+    --blue-light:#2fae62;
     --gold:#c9a24b;
-    --bg:#f6f8fb;
-    --text:#1c2733;
-    --muted:#5b6b7c;
-    --border:#e3e8ef;
+    --bg:#f6f4ee;
+    --text:#1c2420;
+    --muted:#5c6b62;
+    --border:#e2e5de;
     --white:#ffffff;
     --success:#1e7a4c;
     --error:#b3331e;
@@ -47,6 +47,10 @@
     letter-spacing:.3px;margin-bottom:20px;
   }
   .eyebrow::before{content:'●';font-size:8px;}
+  .hero-tagline{
+    font-size:15px;font-weight:700;letter-spacing:.5px;color:var(--gold);
+    text-transform:uppercase;margin-bottom:14px;
+  }
 
   /* Header */
   header{
@@ -56,8 +60,14 @@
     border-bottom:1px solid rgba(255,255,255,.08);
   }
   header .container{display:flex;align-items:center;justify-content:space-between;}
-  .logo{color:var(--white);font-size:22px;font-weight:700;letter-spacing:.3px;}
-  .logo span{color:var(--gold);}
+  .logo{display:flex;align-items:center;gap:11px;color:var(--white);font-size:20px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;}
+  .logo-mark{
+    flex:none;width:36px;height:36px;border-radius:9px;
+    background:linear-gradient(135deg, var(--blue-light) 0%, var(--navy-light) 55%, var(--navy) 100%);
+    color:var(--white);display:flex;align-items:center;justify-content:center;
+    font-size:19px;font-weight:800;letter-spacing:0;text-transform:none;
+    box-shadow:0 4px 12px -4px rgba(0,0,0,.4);
+  }
   nav.header-nav{display:flex;align-items:center;gap:32px;}
   nav.header-nav a.nav-link{color:rgba(255,255,255,.85);font-size:15px;font-weight:500;}
   nav.header-nav a.nav-link:hover{color:var(--white);}
@@ -66,7 +76,7 @@
 
   /* Hero */
   .hero{
-    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 55%, #0e2a4d 100%);
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 55%, #0a1f16 100%);
     color:var(--white);
     padding:80px 0 100px;
     position:relative;
@@ -74,7 +84,7 @@
   }
   .hero::after{
     content:'';position:absolute;right:-120px;top:-120px;width:420px;height:420px;
-    background:radial-gradient(circle, rgba(46,123,214,.35), transparent 70%);
+    background:radial-gradient(circle, rgba(47,174,98,.35), transparent 70%);
     border-radius:50%;
   }
   .hero-inner{position:relative;z-index:1;max-width:680px;}
@@ -92,7 +102,7 @@
   .section-head h2{font-size:32px;font-weight:800;color:var(--navy);margin-bottom:14px;letter-spacing:-.3px;}
   .section-head p{color:var(--muted);font-size:16px;}
   .tag{
-    display:inline-block;color:var(--blue);background:rgba(29,95,168,.08);
+    display:inline-block;color:var(--blue);background:rgba(31,138,76,.08);
     padding:5px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:16px;
   }
 
@@ -101,7 +111,7 @@
   .booking-card{
     max-width:760px;margin:0 auto;background:var(--white);
     border:1px solid var(--border);border-radius:16px;
-    padding:48px;box-shadow:0 20px 50px -25px rgba(11,37,69,.2);
+    padding:48px;box-shadow:0 20px 50px -25px rgba(18,48,36,.2);
   }
   .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
   .form-grid.full{grid-template-columns:1fr;}
@@ -135,12 +145,32 @@
     border-radius:8px;padding:11px 18px;font-size:14px;font-weight:600;
     cursor:pointer;width:100%;
   }
-  .btn-add:hover{background:rgba(29,95,168,.06);}
+  .btn-add:hover{background:rgba(31,138,76,.06);}
   .form-note{font-size:13px;color:var(--muted);margin-top:18px;text-align:center;}
   .booking-card .btn-primary{width:100%;padding:16px;font-size:16px;margin-top:6px;}
   #form-status{margin-top:16px;padding:14px;border-radius:8px;font-size:14.5px;display:none;text-align:center;}
   #form-status.success{display:block;background:rgba(30,122,76,.1);color:var(--success);}
   #form-status.error{display:block;background:rgba(179,51,30,.1);color:var(--error);}
+
+  /* Topics */
+  .topics{background:var(--white);}
+  .topics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .topic-card{
+    background:var(--bg);border:1.5px solid var(--border);border-radius:10px;
+    padding:20px;padding-right:44px;display:flex;align-items:center;gap:14px;position:relative;
+    font-size:14.5px;font-weight:600;color:var(--navy);cursor:pointer;user-select:none;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .topic-card:hover{transform:translateY(-2px);box-shadow:0 14px 28px -18px rgba(18,48,36,.25);border-color:var(--blue);}
+  .topic-card:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  .topic-card.selected{background:rgba(31,138,76,.1);border-color:var(--blue);color:var(--blue);}
+  .topic-card.selected::after{
+    content:'✓';position:absolute;right:16px;top:50%;transform:translateY(-50%);
+    color:var(--blue);font-weight:800;font-size:16px;
+  }
+  .topic-icon{font-size:22px;flex:none;}
+  .topics-summary{text-align:center;margin-top:28px;color:var(--muted);font-size:14px;min-height:20px;}
+  .topics-summary strong{color:var(--navy);}
 
   /* Why choose - cards */
   .why{background:var(--bg);}
@@ -149,9 +179,9 @@
     background:var(--white);border:1px solid var(--border);border-radius:12px;
     padding:32px 28px;transition:transform .2s ease, box-shadow .2s ease;
   }
-  .card:hover{transform:translateY(-3px);box-shadow:0 16px 32px -20px rgba(11,37,69,.25);}
+  .card:hover{transform:translateY(-3px);box-shadow:0 16px 32px -20px rgba(18,48,36,.25);}
   .card-icon{
-    width:44px;height:44px;border-radius:10px;background:rgba(29,95,168,.1);
+    width:44px;height:44px;border-radius:10px;background:rgba(31,138,76,.1);
     display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;
   }
   .card h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;}
@@ -188,6 +218,16 @@
   .advisor-card h4{font-size:16px;margin-bottom:4px;}
   .advisor-card p{font-size:13.5px;color:rgba(255,255,255,.7);}
 
+  /* Partners */
+  .partners{background:var(--white);padding:56px 0;}
+  .partners-head{text-align:center;margin-bottom:32px;}
+  .partners-head p{color:var(--muted);font-size:14px;text-transform:uppercase;letter-spacing:1px;font-weight:700;}
+  .partners-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+  .partner-chip{
+    background:var(--bg);border:1px solid var(--border);border-radius:8px;
+    padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);
+  }
+
   /* Trust */
   .trust{background:var(--bg);}
   .trust-inner{max-width:760px;margin:0 auto;text-align:center;}
@@ -215,8 +255,14 @@
   .final-cta h2{font-size:32px;font-weight:800;margin-bottom:14px;}
   .final-cta p{color:rgba(255,255,255,.8);margin-bottom:32px;font-size:16px;}
 
-  footer{background:#081b34;color:rgba(255,255,255,.6);padding:32px 0;font-size:13.5px;text-align:center;}
-  footer .footer-brand{color:var(--white);font-weight:700;margin-bottom:6px;}
+  footer{background:#0c2118;color:rgba(255,255,255,.65);padding:40px 0;font-size:13.5px;text-align:center;}
+  footer .footer-brand{
+    display:inline-flex;align-items:center;gap:10px;color:var(--white);
+    font-weight:800;letter-spacing:1.5px;text-transform:uppercase;font-size:18px;margin-bottom:14px;
+  }
+  .footer-contact{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;margin-bottom:14px;font-size:14px;color:rgba(255,255,255,.85);}
+  .footer-contact a{color:rgba(255,255,255,.85);}
+  .footer-contact a:hover{color:var(--gold);}
 
   @media (max-width: 860px){
     .hero h1{font-size:32px;}
@@ -227,6 +273,7 @@
     .form-grid{grid-template-columns:1fr;}
     .checkbox-grid{grid-template-columns:1fr;}
     .trust ul{grid-template-columns:1fr;}
+    .topics-grid{grid-template-columns:1fr;}
     .family-member-row{flex-direction:column;align-items:stretch;}
     .family-row-grid{grid-template-columns:1fr;}
     .remove-family-member{width:100%;}
@@ -238,8 +285,9 @@
 
 <header>
   <div class="container">
-    <div class="logo">Simple<span>care</span></div>
+    <div class="logo"><span class="logo-mark">S</span>Simplecare</div>
     <nav class="header-nav">
+      <a class="nav-link" href="#topics">Themen</a>
       <a class="nav-link" href="#why">Vorteile</a>
       <a class="nav-link" href="#steps">Ablauf</a>
       <a class="nav-link" href="#faq">FAQ</a>
@@ -250,9 +298,10 @@
 
 <section class="hero">
   <div class="container hero-inner">
+    <p class="hero-tagline">Ihre Zukunft. Meine Mission.</p>
     <div class="eyebrow">Kostenlos &amp; unverbindlich</div>
-    <h1>Sparen Sie bei Ihrer Krankenkasse in der Schweiz</h1>
-    <p class="lead">Erhalten Sie eine kostenlose, persönliche Krankenkassen-Analyse. Unsere Experten bei Simplecare helfen Ihnen, die passende Schweizer Police zu finden und Sparpotenzial zu erkennen — ganz unverbindlich.</p>
+    <h1>Die richtige Versicherung für jede Lebenslage</h1>
+    <p class="lead">Ob Krankenkasse, Vorsorge, Fahrzeug, Haftpflicht oder Vorsorgeplanung — bei Simplecare erhalten Sie eine kostenlose, persönliche Beratung genau zu dem Thema, das Sie gerade beschäftigt. Sie entscheiden, worüber wir sprechen.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#booking">Kostenlose Beratung anfragen</a>
       <span class="hero-meta">15–30 Min. · Unabhängige Beratung</span>
@@ -262,6 +311,30 @@
       <div class="hero-badge"><span class="dot"></span> Vertraulich</div>
       <div class="hero-badge"><span class="dot"></span> Mehrsprachig</div>
     </div>
+  </div>
+</section>
+
+<section class="topics" id="topics">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Meine Themen</span>
+      <h2>Wobei kann ich Sie beraten?</h2>
+      <p>Wählen Sie im Formular unten einfach die Themen aus, die Sie interessieren — eines oder mehrere.</p>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-card" data-topic="Versicherungsvergleich aller Policen" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🔍</span> Versicherungsvergleich aller Policen</div>
+      <div class="topic-card" data-topic="Krankenkassen-Optimierung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🏥</span> Krankenkassen-Optimierung</div>
+      <div class="topic-card" data-topic="Hausrat- und Privathaftpflichtversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🏠</span> Hausrat- &amp; Privathaftpflichtversicherung</div>
+      <div class="topic-card" data-topic="Rechtsschutzversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">⚖️</span> Rechtsschutzversicherung</div>
+      <div class="topic-card" data-topic="Mietkautionsversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🔑</span> Mietkautionsversicherung</div>
+      <div class="topic-card" data-topic="Reiseversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">✈️</span> Reiseversicherung</div>
+      <div class="topic-card" data-topic="Autoversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🚗</span> Autoversicherung</div>
+      <div class="topic-card" data-topic="Vorsorgeberatung Säule 3a" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">💰</span> Vorsorgeberatung Säule 3a</div>
+      <div class="topic-card" data-topic="Lebensversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">❤️</span> Lebensversicherung</div>
+      <div class="topic-card" data-topic="Erwerbsunfähigkeitsversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🛡️</span> Erwerbsunfähigkeitsversicherung</div>
+      <div class="topic-card" data-topic="Kindersparplan" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">👶</span> Kindersparplan</div>
+    </div>
+    <p class="topics-summary" id="topics-summary">Noch keine Themen ausgewählt — klicken Sie oben, was Sie interessiert.</p>
   </div>
 </section>
 
@@ -318,14 +391,19 @@
         </div>
 
         <fieldset>
-          <legend>Welche Policen haben Sie aktuell?</legend>
+          <legend>Zu welchem Thema möchten Sie sich beraten lassen? (Mehrfachauswahl möglich)</legend>
           <div class="checkbox-grid">
-            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Grundversicherung"> Grundversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Zusatzversicherung"> Zusatzversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Zahnversicherung"> Zahnversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Unfallversicherung"> Unfallversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Reiseversicherung"> Reiseversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Policen" value="Andere"> Andere</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Versicherungsvergleich aller Policen"> Versicherungsvergleich aller Policen</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Krankenkassen-Optimierung"> Krankenkassen-Optimierung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Hausrat- und Privathaftpflichtversicherung"> Hausrat- &amp; Privathaftpflichtversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Rechtsschutzversicherung"> Rechtsschutzversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Mietkautionsversicherung"> Mietkautionsversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Reiseversicherung"> Reiseversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Autoversicherung"> Autoversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Vorsorgeberatung Säule 3a"> Vorsorgeberatung (Säule 3a)</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Lebensversicherung"> Lebensversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Erwerbsunfähigkeitsversicherung"> Erwerbsunfähigkeitsversicherung</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Kindersparplan"> Kindersparplan</label>
           </div>
         </fieldset>
 
@@ -336,7 +414,7 @@
 
         <button type="submit" class="btn btn-primary">Kostenlose Beratung anfragen</button>
         <div id="form-status"></div>
-        <p class="form-note">Ihre Angaben werden ausschliesslich zur Kontaktaufnahme bezüglich Ihrer Krankenkassen-Beratung verwendet und vertraulich behandelt.</p>
+        <p class="form-note">Ihre Angaben werden ausschliesslich zur Kontaktaufnahme bezüglich Ihrer Versicherungsberatung verwendet und vertraulich behandelt.</p>
       </form>
     </div>
   </div>
@@ -353,7 +431,7 @@
       <div class="card">
         <div class="card-icon">⚖️</div>
         <h3>Unabhängige Beratung</h3>
-        <p>Wir vergleichen mehrere Schweizer Krankenkassen, damit Sie eine fundierte Entscheidung treffen können.</p>
+        <p>Wir vergleichen Angebote verschiedener Schweizer Versicherer, damit Sie in jedem Bereich eine fundierte Entscheidung treffen können.</p>
       </div>
       <div class="card">
         <div class="card-icon">🆓</div>
@@ -368,18 +446,43 @@
       <div class="card">
         <div class="card-icon">🔄</div>
         <h3>Unterstützung beim Wechsel</h3>
-        <p>Wir begleiten Sie durch den gesamten Wechselprozess, falls Sie sich für einen Anbieterwechsel entscheiden.</p>
+        <p>Wir begleiten Sie durch den gesamten Abschluss- oder Wechselprozess — bei jeder Versicherung, die Sie betrifft.</p>
       </div>
       <div class="card">
         <div class="card-icon">🌐</div>
-        <h3>Mehrsprachiger Service</h3>
-        <p>Wir bieten Beratung auf Deutsch, Englisch und weiteren Sprachen an.</p>
+        <h3>International &amp; mehrsprachig</h3>
+        <p>Beratung auf Deutsch, Englisch und Russisch — spezialisiert auf Expats und internationale Klienten mit Bedarf an weltweitem Schutz.</p>
       </div>
       <div class="card">
         <div class="card-icon">🔒</div>
         <h3>Vertrauenswürdig &amp; vertraulich</h3>
         <p>Ihre Daten bleiben privat und werden sorgfältig behandelt.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners">
+  <div class="container">
+    <div class="partners-head">
+      <p>Zusammenarbeit mit führenden Schweizer Versicherern</p>
+    </div>
+    <div class="partners-grid">
+      <span class="partner-chip">atupri</span>
+      <span class="partner-chip">CSS</span>
+      <span class="partner-chip">Helsana</span>
+      <span class="partner-chip">Sanitas</span>
+      <span class="partner-chip">SWICA</span>
+      <span class="partner-chip">Sympany</span>
+      <span class="partner-chip">AXA</span>
+      <span class="partner-chip">Die Mobiliar</span>
+      <span class="partner-chip">Zurich</span>
+      <span class="partner-chip">Helvetia</span>
+      <span class="partner-chip">Generali</span>
+      <span class="partner-chip">Concordia</span>
+      <span class="partner-chip">Swiss Life</span>
+      <span class="partner-chip">Pax</span>
+      <span class="partner-chip">und weitere</span>
     </div>
   </div>
 </section>
@@ -419,8 +522,8 @@
 <section class="savings">
   <div class="container savings-inner">
     <div class="savings-text">
-      <h2>Zahlen Sie zu viel?</h2>
-      <p>Viele Menschen in der Schweiz zahlen höhere Prämien als nötig. Eine persönliche Analyse hilft, Einsparpotenzial zu identifizieren — bei gleichbleibendem Versicherungsschutz.</p>
+      <h2>Zahlen Sie zu viel — oder fehlt Ihnen Schutz?</h2>
+      <p>Viele Menschen in der Schweiz zahlen für ihre Versicherungen mehr als nötig oder sind in wichtigen Bereichen nicht optimal abgesichert. Eine persönliche Analyse hilft, das zu erkennen — bei jedem Thema, das Sie interessiert.</p>
       <ul class="savings-list">
         <li>Kostenlose Analyse</li>
         <li>Unverbindlich</li>
@@ -463,20 +566,20 @@
         <div class="faq-a"><p>Ja. Unsere Beratung ist für Sie zu 100% kostenlos und unverbindlich. Wir werden von den Versicherern vergütet, nicht von Ihnen.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Muss ich meine Krankenkasse wechseln?</button>
-        <div class="faq-a"><p>Nein. Sie erhalten eine Analyse und Empfehlungen und entscheiden am Ende selbst, ob und wohin Sie wechseln möchten.</p></div>
+        <button class="faq-q">Muss ich meine bestehende Versicherung wechseln?</button>
+        <div class="faq-a"><p>Nein. Sie erhalten eine Analyse und Empfehlungen und entscheiden am Ende selbst, ob und wo Sie etwas anpassen möchten.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Kann ich nur meine Grundversicherung wechseln?</button>
-        <div class="faq-a"><p>Ja, Grundversicherung und Zusatzversicherungen können unabhängig voneinander gewechselt werden — wir erklären Ihnen die jeweiligen Fristen und Bedingungen.</p></div>
+        <button class="faq-q">Welche Themen deckt Simplecare ab?</button>
+        <div class="faq-a"><p>Von Krankenkasse über Hausrat, Haftpflicht und Fahrzeugversicherung bis zu Vorsorge (Säule 3a), Lebensversicherung und mehr — wählen Sie im Anfrageformular einfach die Themen aus, die Sie interessieren.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Bis wann muss ich meine Krankenkasse kündigen?</button>
-        <div class="faq-a"><p>Für die Grundversicherung gilt in der Regel der 30. November als Kündigungsfrist für einen Wechsel per 1. Januar. Für Zusatzversicherungen gelten oft andere Fristen — wir klären das gerne für Sie ab.</p></div>
+        <button class="faq-q">Kann ich mehrere Themen gleichzeitig besprechen?</button>
+        <div class="faq-a"><p>Ja, wählen Sie im Formular einfach alle relevanten Themen aus. Ihr Berater bereitet die Beratung entsprechend vor.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Wie lange dauert die Beratung?</button>
-        <div class="faq-a"><p>In der Regel 15–30 Minuten, telefonisch oder persönlich — ganz nach Ihren Wünschen.</p></div>
+        <div class="faq-a"><p>In der Regel 15–30 Minuten pro Thema, telefonisch oder persönlich — ganz nach Ihren Wünschen.</p></div>
       </div>
     </div>
   </div>
@@ -492,9 +595,14 @@
 
 <footer>
   <div class="container">
-    <div class="footer-brand">Simplecare</div>
-    <p>© 2026 Simplecare — Schweizer Krankenkassen-Beratung</p>
-    <p style="margin-top:6px;">Unabhängig · Vertraulich · Kostenlos</p>
+    <div class="footer-brand"><span class="logo-mark">S</span>Simplecare</div>
+    <div class="footer-contact">
+      <a href="tel:+41797837232">+41 79 783 72 32</a>
+      <a href="mailto:ed@simplecare.ch">ed@simplecare.ch</a>
+      <span>Lavaterstrasse 67, 8002 Zürich</span>
+    </div>
+    <p>© 2026 Simplecare.ch AG — Unabhängige Versicherungsberatung Schweiz</p>
+    <p style="margin-top:6px;">Unabhängig · Vertraulich · Kostenlos · Beratung auf Deutsch, Englisch &amp; Russisch</p>
   </div>
 </footer>
 
@@ -505,6 +613,69 @@
       var isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
       if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+
+  // Topic cards <-> form checkboxes: keep selection in sync both ways
+  var topicCards = document.querySelectorAll('.topic-card');
+  var topicsSummary = document.getElementById('topics-summary');
+
+  function getCheckboxForTopic(topicValue){
+    var checkboxes = document.querySelectorAll('input[name="Themen"]');
+    for(var i = 0; i < checkboxes.length; i++){
+      if(checkboxes[i].value === topicValue){ return checkboxes[i]; }
+    }
+    return null;
+  }
+
+  function getCardForTopic(topicValue){
+    for(var i = 0; i < topicCards.length; i++){
+      if(topicCards[i].getAttribute('data-topic') === topicValue){ return topicCards[i]; }
+    }
+    return null;
+  }
+
+  function updateTopicsSummary(){
+    var selected = [];
+    document.querySelectorAll('input[name="Themen"]:checked').forEach(function(cb){
+      selected.push(cb.value);
+    });
+    if(selected.length === 0){
+      topicsSummary.textContent = 'Noch keine Themen ausgewählt — klicken Sie oben, was Sie interessiert.';
+    } else {
+      topicsSummary.innerHTML = 'Ausgewählt: <strong>' + selected.join(', ') + '</strong>';
+    }
+  }
+
+  function setTopicSelected(topicValue, isSelected){
+    var checkbox = getCheckboxForTopic(topicValue);
+    var card = getCardForTopic(topicValue);
+    if(checkbox){ checkbox.checked = isSelected; }
+    if(card){
+      card.classList.toggle('selected', isSelected);
+      card.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+    }
+    updateTopicsSummary();
+  }
+
+  topicCards.forEach(function(card){
+    var topicValue = card.getAttribute('data-topic');
+    card.addEventListener('click', function(){
+      var checkbox = getCheckboxForTopic(topicValue);
+      var willBeSelected = checkbox ? !checkbox.checked : !card.classList.contains('selected');
+      setTopicSelected(topicValue, willBeSelected);
+    });
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  document.querySelectorAll('input[name="Themen"]').forEach(function(checkbox){
+    checkbox.addEventListener('change', function(){
+      setTopicSelected(checkbox.value, checkbox.checked);
     });
   });
 
@@ -576,6 +747,11 @@
       formStatus.textContent = 'Vielen Dank! Ihre Anfrage wurde übermittelt. Wir melden uns in Kürze bei Ihnen.';
       formStatus.className = 'success';
       form.reset();
+      topicCards.forEach(function(card){
+        card.classList.remove('selected');
+        card.setAttribute('aria-checked', 'false');
+      });
+      updateTopicsSummary();
     })
     .catch(function(err){
       formStatus.textContent = 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ed@simplecare.ch.';

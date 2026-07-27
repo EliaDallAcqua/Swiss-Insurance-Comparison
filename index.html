@@ -60,7 +60,8 @@
     border-bottom:1px solid rgba(255,255,255,.08);
   }
   header .container{display:flex;align-items:center;justify-content:space-between;}
-  .logo{display:flex;align-items:center;color:var(--white);font-size:21px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;}
+  .logo{display:flex;align-items:center;gap:10px;color:var(--white);font-size:21px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;}
+  .logo-full{height:64px;width:auto;display:block;}
   nav.header-nav{display:flex;align-items:center;gap:32px;}
   nav.header-nav a.nav-link{color:rgba(255,255,255,.85);font-size:15px;font-weight:500;}
   nav.header-nav a.nav-link:hover{color:var(--white);}
@@ -257,9 +258,11 @@
 
   footer{background:#0c2118;color:rgba(255,255,255,.65);padding:40px 0;font-size:13.5px;text-align:center;}
   footer .footer-brand{
+    display:flex;align-items:center;justify-content:center;gap:10px;
     color:var(--white);font-weight:800;letter-spacing:1.5px;
     text-transform:uppercase;font-size:19px;margin-bottom:14px;
   }
+  .footer-logo-full{height:52px;width:auto;display:block;}
   .footer-contact{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;margin-bottom:14px;font-size:14px;color:rgba(255,255,255,.85);}
   .footer-contact a{color:rgba(255,255,255,.85);}
   .footer-contact a:hover{color:var(--gold);}
@@ -285,7 +288,7 @@
 
 <header>
   <div class="container">
-    <div class="logo">Simplecare</div>
+    <div class="logo"><img src="Logo zum benutzen weiss.png" alt="Simplecare" class="logo-full"></div>
     <nav class="header-nav">
       <a class="nav-link" href="#topics" data-i18n="nav_topics">Topics</a>
       <a class="nav-link" href="#why" data-i18n="nav_why">Why Us</a>
@@ -599,7 +602,7 @@
 
 <footer>
   <div class="container">
-    <div class="footer-brand">Simplecare</div>
+    <div class="footer-brand"><img src="Logo zum benutzen weiss.png" alt="Simplecare" class="footer-logo-full"></div>
     <div class="footer-contact">
       <a href="tel:+41797837232">+41 79 783 72 32</a>
       <a href="mailto:ed@simplecare.ch">ed@simplecare.ch</a>

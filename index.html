@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simplecare — Ihre unabhängige Versicherungsberatung Schweiz</title>
-<meta name="description" content="Unabhängige Versicherungsberatung in der Schweiz — von Krankenkasse über Vorsorge bis Fahrzeugversicherung. Kostenlose, persönliche Beratung von Simplecare zum Thema Ihrer Wahl.">
+<title>Simplecare — Your Independent Insurance Consulting Switzerland</title>
+<meta name="description" content="Independent insurance consulting in Switzerland — from health insurance to retirement planning to vehicle insurance. Free, personal consultation from Simplecare on the topic of your choice.">
 <style>
   :root{
     --navy: #123024;
@@ -66,6 +66,13 @@
   nav.header-nav a.nav-link:hover{color:var(--white);}
   .header-cta{background:var(--gold);color:var(--navy);padding:11px 22px;border-radius:6px;font-weight:600;font-size:14px;}
   .header-cta:hover{background:#d8b25c;}
+  .lang-switch{display:flex;gap:3px;background:rgba(255,255,255,.08);border-radius:7px;padding:3px;}
+  .lang-btn{
+    background:none;border:none;color:rgba(255,255,255,.65);font-size:13px;font-weight:700;
+    padding:6px 11px;border-radius:5px;cursor:pointer;font-family:inherit;letter-spacing:.3px;
+  }
+  .lang-btn.active{background:var(--gold);color:var(--navy);}
+  .lang-btn:hover:not(.active){color:var(--white);}
 
   /* Hero */
   .hero{
@@ -280,29 +287,33 @@
   <div class="container">
     <div class="logo">Simplecare</div>
     <nav class="header-nav">
-      <a class="nav-link" href="#topics">Themen</a>
-      <a class="nav-link" href="#why">Vorteile</a>
-      <a class="nav-link" href="#steps">Ablauf</a>
-      <a class="nav-link" href="#faq">FAQ</a>
-      <a class="header-cta" href="#booking">Kostenlose Beratung</a>
+      <a class="nav-link" href="#topics" data-i18n="nav_topics">Topics</a>
+      <a class="nav-link" href="#why" data-i18n="nav_why">Why Us</a>
+      <a class="nav-link" href="#steps" data-i18n="nav_steps">Process</a>
+      <a class="nav-link" href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a class="header-cta" href="#booking" data-i18n="nav_cta">Free Consultation</a>
+      <div class="lang-switch">
+        <button type="button" class="lang-btn" data-lang="de">DE</button>
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+      </div>
     </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="container hero-inner">
-    <p class="hero-tagline">Ihre Zukunft. Meine Mission.</p>
-    <div class="eyebrow">Kostenlos &amp; unverbindlich</div>
-    <h1>Die richtige Versicherung für jede Lebenslage</h1>
-    <p class="lead">Ob Krankenkasse, Vorsorge, Fahrzeug, Haftpflicht oder Vorsorgeplanung — bei Simplecare erhalten Sie eine kostenlose, persönliche Beratung genau zu dem Thema, das Sie gerade beschäftigt. Sie entscheiden, worüber wir sprechen.</p>
+    <p class="hero-tagline" data-i18n="hero_tagline">Your Future. My Mission.</p>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Free &amp; no obligation</div>
+    <h1 data-i18n="hero_h1">The right insurance for every stage of life</h1>
+    <p class="lead" data-i18n="hero_lead">Whether it's health insurance, retirement planning, your vehicle, liability or pension planning — at Simplecare you get a free, personal consultation on exactly the topic that matters to you. You decide what we talk about.</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#booking">Kostenlose Beratung anfragen</a>
-      <span class="hero-meta">15–30 Min. · Unabhängige Beratung</span>
+      <a class="btn btn-primary" href="#booking" data-i18n="hero_cta">Request Free Consultation</a>
+      <span class="hero-meta" data-i18n="hero_meta">15–30 min · Independent advice</span>
     </div>
     <div class="hero-badges">
-      <div class="hero-badge"><span class="dot"></span> Unabhängig</div>
-      <div class="hero-badge"><span class="dot"></span> Vertraulich</div>
-      <div class="hero-badge"><span class="dot"></span> Mehrsprachig</div>
+      <div class="hero-badge"><span class="dot"></span><span data-i18n="badge_independent">Independent</span></div>
+      <div class="hero-badge"><span class="dot"></span><span data-i18n="badge_confidential">Confidential</span></div>
+      <div class="hero-badge"><span class="dot"></span><span data-i18n="badge_multilingual">Multilingual</span></div>
     </div>
   </div>
 </section>
@@ -310,93 +321,93 @@
 <section class="topics" id="topics">
   <div class="container">
     <div class="section-head">
-      <span class="tag">Meine Themen</span>
-      <h2>Wobei kann ich Sie beraten?</h2>
-      <p>Wählen Sie im Formular unten einfach die Themen aus, die Sie interessieren — eines oder mehrere.</p>
+      <span class="tag" data-i18n="topics_tag">My Topics</span>
+      <h2 data-i18n="topics_h2">What can I help you with?</h2>
+      <p data-i18n="topics_p">Simply select the topics that interest you in the form below — one or several.</p>
     </div>
     <div class="topics-grid">
-      <div class="topic-card" data-topic="Versicherungsvergleich aller Policen" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🔍</span> Versicherungsvergleich aller Policen</div>
-      <div class="topic-card" data-topic="Krankenkassen-Optimierung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🏥</span> Krankenkassen-Optimierung</div>
-      <div class="topic-card" data-topic="Hausrat- und Privathaftpflichtversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🏠</span> Hausrat- &amp; Privathaftpflichtversicherung</div>
-      <div class="topic-card" data-topic="Rechtsschutzversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">⚖️</span> Rechtsschutzversicherung</div>
-      <div class="topic-card" data-topic="Mietkautionsversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🔑</span> Mietkautionsversicherung</div>
-      <div class="topic-card" data-topic="Reiseversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">✈️</span> Reiseversicherung</div>
-      <div class="topic-card" data-topic="Autoversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🚗</span> Autoversicherung</div>
-      <div class="topic-card" data-topic="Vorsorgeberatung Säule 3a" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">💰</span> Vorsorgeberatung Säule 3a</div>
-      <div class="topic-card" data-topic="Lebensversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">❤️</span> Lebensversicherung</div>
-      <div class="topic-card" data-topic="Erwerbsunfähigkeitsversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🛡️</span> Erwerbsunfähigkeitsversicherung</div>
-      <div class="topic-card" data-topic="Kindersparplan" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">👶</span> Kindersparplan</div>
+      <div class="topic-card" data-topic="Versicherungsvergleich aller Policen" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🔍</span><span data-i18n="topic_1">Insurance comparison across all policies</span></div>
+      <div class="topic-card" data-topic="Krankenkassen-Optimierung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🏥</span><span data-i18n="topic_2">Health insurance optimization</span></div>
+      <div class="topic-card" data-topic="Hausrat- und Privathaftpflichtversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🏠</span><span data-i18n="topic_3">Household &amp; personal liability insurance</span></div>
+      <div class="topic-card" data-topic="Rechtsschutzversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">⚖️</span><span data-i18n="topic_4">Legal protection insurance</span></div>
+      <div class="topic-card" data-topic="Mietkautionsversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🔑</span><span data-i18n="topic_5">Rental deposit insurance</span></div>
+      <div class="topic-card" data-topic="Reiseversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">✈️</span><span data-i18n="topic_6">Travel insurance</span></div>
+      <div class="topic-card" data-topic="Autoversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🚗</span><span data-i18n="topic_7">Car insurance</span></div>
+      <div class="topic-card" data-topic="Vorsorgeberatung Säule 3a" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">💰</span><span data-i18n="topic_8">Retirement planning (Pillar 3a)</span></div>
+      <div class="topic-card" data-topic="Lebensversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">❤️</span><span data-i18n="topic_9">Life insurance</span></div>
+      <div class="topic-card" data-topic="Erwerbsunfähigkeitsversicherung" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">🛡️</span><span data-i18n="topic_10">Disability insurance</span></div>
+      <div class="topic-card" data-topic="Kindersparplan" tabindex="0" role="checkbox" aria-checked="false"><span class="topic-icon">👶</span><span data-i18n="topic_11">Children's savings plan</span></div>
     </div>
-    <p class="topics-summary" id="topics-summary">Noch keine Themen ausgewählt — klicken Sie oben, was Sie interessiert.</p>
+    <p class="topics-summary" id="topics-summary" data-i18n="topics_empty">No topics selected yet — click above what interests you.</p>
   </div>
 </section>
 
 <section class="booking" id="booking">
   <div class="container">
     <div class="section-head">
-      <span class="tag">Jetzt anfragen</span>
-      <h2>Fordern Sie Ihre kostenlose Beratung an</h2>
-      <p>Ein Berater meldet sich in Kürze persönlich bei Ihnen.</p>
+      <span class="tag" data-i18n="booking_tag">Request now</span>
+      <h2 data-i18n="booking_h2">Request your free consultation</h2>
+      <p data-i18n="booking_p">An advisor will get back to you personally shortly.</p>
     </div>
 
     <div class="booking-card">
       <form id="booking-form">
         <div class="form-grid">
           <div class="field">
-            <label for="fullname">Vollständiger Name</label>
+            <label for="fullname" data-i18n="label_fullname">Full Name</label>
             <input type="text" id="fullname" name="Name" required>
           </div>
           <div class="field">
-            <label for="dob">Geburtsdatum</label>
+            <label for="dob" data-i18n="label_dob">Date of Birth</label>
             <input type="date" id="dob" name="Geburtsdatum" required>
           </div>
         </div>
         <div class="form-grid">
           <div class="field">
-            <label for="plz">Postleitzahl</label>
+            <label for="plz" data-i18n="label_plz">Postal Code</label>
             <input type="text" id="plz" name="PLZ" required>
           </div>
           <div class="field">
-            <label for="email">E-Mail-Adresse</label>
+            <label for="email" data-i18n="label_email">Email Address</label>
             <input type="email" id="email" name="Email" required>
           </div>
         </div>
         <div class="form-grid">
           <div class="field">
-            <label for="phone">Telefonnummer</label>
+            <label for="phone" data-i18n="label_phone">Phone Number</label>
             <input type="tel" id="phone" name="Telefon" required>
           </div>
           <div class="field">
-            <label for="household">Haushalt</label>
+            <label for="household" data-i18n="label_household">Household</label>
             <select id="household" name="Haushalt">
-              <option value="Einzelperson">Einzelperson</option>
-              <option value="Familie">Familie</option>
+              <option value="Einzelperson" data-i18n="option_single">Single</option>
+              <option value="Familie" data-i18n="option_family">Family</option>
             </select>
           </div>
         </div>
 
         <div class="family-section" id="family-section">
           <fieldset>
-            <legend>Angaben zu Ihren Familienmitgliedern</legend>
+            <legend data-i18n="family_legend">Details of your family members</legend>
             <div id="family-members-list"></div>
-            <button type="button" class="btn-add" id="add-family-member">+ Weiteres Familienmitglied hinzufügen</button>
+            <button type="button" class="btn-add" id="add-family-member" data-i18n="add_family_btn">+ Add another family member</button>
           </fieldset>
         </div>
 
         <fieldset>
-          <legend>Zu welchem Thema möchten Sie sich beraten lassen? (Mehrfachauswahl möglich)</legend>
+          <legend data-i18n="topics_legend">Which topic would you like advice on? (multiple selection possible)</legend>
           <div class="checkbox-grid">
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Versicherungsvergleich aller Policen"> Versicherungsvergleich aller Policen</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Krankenkassen-Optimierung"> Krankenkassen-Optimierung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Hausrat- und Privathaftpflichtversicherung"> Hausrat- &amp; Privathaftpflichtversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Rechtsschutzversicherung"> Rechtsschutzversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Mietkautionsversicherung"> Mietkautionsversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Reiseversicherung"> Reiseversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Autoversicherung"> Autoversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Vorsorgeberatung Säule 3a"> Vorsorgeberatung (Säule 3a)</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Lebensversicherung"> Lebensversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Erwerbsunfähigkeitsversicherung"> Erwerbsunfähigkeitsversicherung</label>
-            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Kindersparplan"> Kindersparplan</label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Versicherungsvergleich aller Policen"><span data-i18n="topic_1">Insurance comparison across all policies</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Krankenkassen-Optimierung"><span data-i18n="topic_2">Health insurance optimization</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Hausrat- und Privathaftpflichtversicherung"><span data-i18n="topic_3">Household &amp; personal liability insurance</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Rechtsschutzversicherung"><span data-i18n="topic_4">Legal protection insurance</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Mietkautionsversicherung"><span data-i18n="topic_5">Rental deposit insurance</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Reiseversicherung"><span data-i18n="topic_6">Travel insurance</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Autoversicherung"><span data-i18n="topic_7">Car insurance</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Vorsorgeberatung Säule 3a"><span data-i18n="topic_8">Retirement planning (Pillar 3a)</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Lebensversicherung"><span data-i18n="topic_9">Life insurance</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Erwerbsunfähigkeitsversicherung"><span data-i18n="topic_10">Disability insurance</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Themen" value="Kindersparplan"><span data-i18n="topic_11">Children's savings plan</span></label>
           </div>
         </fieldset>
 
@@ -405,9 +416,9 @@
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
 
-        <button type="submit" class="btn btn-primary">Kostenlose Beratung anfragen</button>
+        <button type="submit" class="btn btn-primary" data-i18n="submit_btn">Request Free Consultation</button>
         <div id="form-status"></div>
-        <p class="form-note">Ihre Angaben werden ausschliesslich zur Kontaktaufnahme bezüglich Ihrer Versicherungsberatung verwendet und vertraulich behandelt.</p>
+        <p class="form-note" data-i18n="form_note">Your information is used solely to contact you regarding your insurance consultation and is treated confidentially.</p>
       </form>
     </div>
   </div>
@@ -416,40 +427,40 @@
 <section class="why" id="why">
   <div class="container">
     <div class="section-head">
-      <span class="tag">Simplecare</span>
-      <h2>Warum Simplecare?</h2>
-      <p>Unabhängig, persönlich und kostenlos — das ist unser Versprechen.</p>
+      <span class="tag" data-i18n="why_tag">Simplecare</span>
+      <h2 data-i18n="why_h2">Why Simplecare?</h2>
+      <p data-i18n="why_p">Independent, personal and free — that's our promise.</p>
     </div>
     <div class="grid-3">
       <div class="card">
         <div class="card-icon">⚖️</div>
-        <h3>Unabhängige Beratung</h3>
-        <p>Wir vergleichen Angebote verschiedener Schweizer Versicherer, damit Sie in jedem Bereich eine fundierte Entscheidung treffen können.</p>
+        <h3 data-i18n="card1_h3">Independent Advice</h3>
+        <p data-i18n="card1_p">We compare offers from various Swiss insurers so you can make an informed decision in every area.</p>
       </div>
       <div class="card">
         <div class="card-icon">🆓</div>
-        <h3>Kostenlose Beratung</h3>
-        <p>Unser Service ist für Sie vollkommen kostenlos.</p>
+        <h3 data-i18n="card2_h3">Free Consultation</h3>
+        <p data-i18n="card2_p">Our service is completely free for you.</p>
       </div>
       <div class="card">
         <div class="card-icon">🤝</div>
-        <h3>Persönliche Betreuung</h3>
-        <p>Sprechen Sie mit einem echten Berater, der Ihre individuelle Situation versteht.</p>
+        <h3 data-i18n="card3_h3">Personal Support</h3>
+        <p data-i18n="card3_p">Speak with a real advisor who understands your individual situation.</p>
       </div>
       <div class="card">
         <div class="card-icon">🔄</div>
-        <h3>Unterstützung beim Wechsel</h3>
-        <p>Wir begleiten Sie durch den gesamten Abschluss- oder Wechselprozess — bei jeder Versicherung, die Sie betrifft.</p>
+        <h3 data-i18n="card4_h3">Support with Switching</h3>
+        <p data-i18n="card4_p">We guide you through the entire application or switching process — for any insurance that concerns you.</p>
       </div>
       <div class="card">
         <div class="card-icon">🌐</div>
-        <h3>International &amp; mehrsprachig</h3>
-        <p>Beratung auf Deutsch, Englisch und Russisch — spezialisiert auf Expats und internationale Klienten mit Bedarf an weltweitem Schutz.</p>
+        <h3 data-i18n="card5_h3">International &amp; Multilingual</h3>
+        <p data-i18n="card5_p">Advice in German, English and Russian — specialized in expats and international clients needing worldwide coverage.</p>
       </div>
       <div class="card">
         <div class="card-icon">🔒</div>
-        <h3>Vertrauenswürdig &amp; vertraulich</h3>
-        <p>Ihre Daten bleiben privat und werden sorgfältig behandelt.</p>
+        <h3 data-i18n="card6_h3">Trustworthy &amp; Confidential</h3>
+        <p data-i18n="card6_p">Your data stays private and is handled with care.</p>
       </div>
     </div>
   </div>
@@ -458,7 +469,7 @@
 <section class="partners">
   <div class="container">
     <div class="partners-head">
-      <p>Zusammenarbeit mit führenden Schweizer Versicherern</p>
+      <p data-i18n="partners_p">Working with leading Swiss insurers</p>
     </div>
     <div class="partners-grid">
       <span class="partner-chip">atupri</span>
@@ -475,7 +486,7 @@
       <span class="partner-chip">Concordia</span>
       <span class="partner-chip">Swiss Life</span>
       <span class="partner-chip">Pax</span>
-      <span class="partner-chip">und weitere</span>
+      <span class="partner-chip" data-i18n="partners_more">and more</span>
     </div>
   </div>
 </section>
@@ -483,30 +494,30 @@
 <section class="steps" id="steps">
   <div class="container">
     <div class="section-head">
-      <span class="tag">Ablauf</span>
-      <h2>So funktioniert's</h2>
-      <p>Vier einfache Schritte zu mehr Klarheit über Ihre Versicherung.</p>
+      <span class="tag" data-i18n="steps_tag">Process</span>
+      <h2 data-i18n="steps_h2">How it works</h2>
+      <p data-i18n="steps_p">Four simple steps to more clarity about your insurance.</p>
     </div>
     <div class="steps-grid">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Angaben übermitteln</h3>
-        <p>Teilen Sie uns ein paar grundlegende Informationen zu Ihrer Person mit.</p>
+        <h3 data-i18n="step1_h3">Submit Your Details</h3>
+        <p data-i18n="step1_p">Share a few basic details about yourself with us.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Persönliche Analyse</h3>
-        <p>Einer unserer Berater analysiert Ihre aktuelle Situation.</p>
+        <h3 data-i18n="step2_h3">Personal Analysis</h3>
+        <p data-i18n="step2_p">One of our advisors analyzes your current situation.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Optionen vergleichen</h3>
-        <p>Wir zeigen Ihnen passende Alternativen und mögliches Sparpotenzial.</p>
+        <h3 data-i18n="step3_h3">Compare Options</h3>
+        <p data-i18n="step3_p">We show you suitable alternatives and potential savings.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <h3>Sicher entscheiden</h3>
-        <p>Sie entscheiden, ob Sie bei Ihrem Anbieter bleiben oder wechseln.</p>
+        <h3 data-i18n="step4_h3">Decide with Confidence</h3>
+        <p data-i18n="step4_p">You decide whether to stay with your provider or switch.</p>
       </div>
     </div>
   </div>
@@ -515,34 +526,34 @@
 <section class="savings">
   <div class="container savings-inner">
     <div class="savings-text">
-      <h2>Zahlen Sie zu viel — oder fehlt Ihnen Schutz?</h2>
-      <p>Viele Menschen in der Schweiz zahlen für ihre Versicherungen mehr als nötig oder sind in wichtigen Bereichen nicht optimal abgesichert. Eine persönliche Analyse hilft, das zu erkennen — bei jedem Thema, das Sie interessiert.</p>
+      <h2 data-i18n="savings_h2">Paying too much — or missing coverage?</h2>
+      <p data-i18n="savings_p">Many people in Switzerland pay more than necessary for their insurance or aren't optimally covered in important areas. A personal analysis helps identify this — for any topic that matters to you.</p>
       <ul class="savings-list">
-        <li>Kostenlose Analyse</li>
-        <li>Unverbindlich</li>
-        <li>Persönliche Beratung</li>
+        <li data-i18n="savings_li1">Free Analysis</li>
+        <li data-i18n="savings_li2">No Obligation</li>
+        <li data-i18n="savings_li3">Personal Advice</li>
       </ul>
-      <a class="btn btn-outline" href="#booking">Mein Sparpotenzial prüfen</a>
+      <a class="btn btn-outline" href="#booking" data-i18n="savings_btn">Check My Savings Potential</a>
     </div>
     <div class="advisor-card">
-      <img src="Foto von mir.jpeg" alt="Ihr persönlicher Berater" class="advisor-photo">
-      <h4>Ihr persönlicher Berater</h4>
-      <p>Das Team hinter Simplecare</p>
+      <img src="Foto von mir.jpeg" alt="Your Personal Advisor" class="advisor-photo">
+      <h4 data-i18n="advisor_h4">Your Personal Advisor</h4>
+      <p data-i18n="advisor_p">The team behind Simplecare</p>
     </div>
   </div>
 </section>
 
 <section class="trust">
   <div class="container trust-inner">
-    <span class="tag">Vertrauen</span>
-    <h2 style="font-size:30px;font-weight:800;color:var(--navy);margin-bottom:8px;">Warum Menschen Simplecare vertrauen</h2>
-    <p style="color:var(--muted);">Ein engagiertes Team mit Fokus auf Klarheit, Fairness und die beste Lösung für Ihre Bedürfnisse. Sie sprechen immer mit einer echten Person — nicht mit einem Callcenter.</p>
+    <span class="tag" data-i18n="trust_tag">Trust</span>
+    <h2 style="font-size:30px;font-weight:800;color:var(--navy);margin-bottom:8px;" data-i18n="trust_h2">Why people trust Simplecare</h2>
+    <p style="color:var(--muted);" data-i18n="trust_p">A dedicated team focused on clarity, fairness and finding the best solution for your needs. You'll always speak with a real person — not a call center.</p>
     <ul>
-      <li>Erfahrene Schweizer Versicherungsberater</li>
-      <li>Transparente Empfehlungen</li>
-      <li>Persönliche Betreuung</li>
-      <li>Unterstützung bei Papierkram &amp; Wechsel</li>
-      <li>Fokus auf die beste Lösung für Sie</li>
+      <li data-i18n="trust_li1">Experienced Swiss insurance advisors</li>
+      <li data-i18n="trust_li2">Transparent recommendations</li>
+      <li data-i18n="trust_li3">Personal support</li>
+      <li data-i18n="trust_li4">Assistance with paperwork &amp; switching</li>
+      <li data-i18n="trust_li5">Focus on finding the best solution for you</li>
     </ul>
   </div>
 </section>
@@ -550,29 +561,29 @@
 <section class="faq" id="faq">
   <div class="container">
     <div class="section-head">
-      <span class="tag">FAQ</span>
-      <h2>Häufig gestellte Fragen</h2>
+      <span class="tag" data-i18n="faq_tag">FAQ</span>
+      <h2 data-i18n="faq_h2">Frequently Asked Questions</h2>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q">Ist die Beratung wirklich kostenlos?</button>
-        <div class="faq-a"><p>Ja. Unsere Beratung ist für Sie zu 100% kostenlos und unverbindlich. Wir werden von den Versicherern vergütet, nicht von Ihnen.</p></div>
+        <button class="faq-q" data-i18n="faq_q1">Is the consultation really free?</button>
+        <div class="faq-a"><p data-i18n="faq_a1">Yes. Our consultation is 100% free and non-binding for you. We are compensated by the insurers, not by you.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Muss ich meine bestehende Versicherung wechseln?</button>
-        <div class="faq-a"><p>Nein. Sie erhalten eine Analyse und Empfehlungen und entscheiden am Ende selbst, ob und wo Sie etwas anpassen möchten.</p></div>
+        <button class="faq-q" data-i18n="faq_q2">Do I have to switch my existing insurance?</button>
+        <div class="faq-a"><p data-i18n="faq_a2">No. You receive an analysis and recommendations and decide for yourself in the end whether and what to change.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Welche Themen deckt Simplecare ab?</button>
-        <div class="faq-a"><p>Von Krankenkasse über Hausrat, Haftpflicht und Fahrzeugversicherung bis zu Vorsorge (Säule 3a), Lebensversicherung und mehr — wählen Sie im Anfrageformular einfach die Themen aus, die Sie interessieren.</p></div>
+        <button class="faq-q" data-i18n="faq_q3">Which topics does Simplecare cover?</button>
+        <div class="faq-a"><p data-i18n="faq_a3">From health insurance to household, liability and vehicle insurance to retirement planning (Pillar 3a), life insurance and more — simply select the topics that interest you in the request form.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Kann ich mehrere Themen gleichzeitig besprechen?</button>
-        <div class="faq-a"><p>Ja, wählen Sie im Formular einfach alle relevanten Themen aus. Ihr Berater bereitet die Beratung entsprechend vor.</p></div>
+        <button class="faq-q" data-i18n="faq_q4">Can I discuss multiple topics at once?</button>
+        <div class="faq-a"><p data-i18n="faq_a4">Yes, simply select all relevant topics in the form. Your advisor will prepare the consultation accordingly.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Wie lange dauert die Beratung?</button>
-        <div class="faq-a"><p>In der Regel 15–30 Minuten pro Thema, telefonisch oder persönlich — ganz nach Ihren Wünschen.</p></div>
+        <button class="faq-q" data-i18n="faq_q5">How long does the consultation take?</button>
+        <div class="faq-a"><p data-i18n="faq_a5">Usually 15–30 minutes per topic, by phone or in person — whatever suits you best.</p></div>
       </div>
     </div>
   </div>
@@ -580,9 +591,9 @@
 
 <section class="final-cta">
   <div class="container">
-    <h2>Finden Sie heraus, ob Sie sparen können</h2>
-    <p>Erhalten Sie eine kostenlose, persönliche Beratung von Simplecare.</p>
-    <a class="btn btn-primary" href="#booking">Kostenlose Beratung anfragen</a>
+    <h2 data-i18n="final_h2">Find out if you could be saving</h2>
+    <p data-i18n="final_p">Get a free, personal consultation from Simplecare.</p>
+    <a class="btn btn-primary" href="#booking" data-i18n="final_btn">Request Free Consultation</a>
   </div>
 </section>
 
@@ -594,8 +605,8 @@
       <a href="mailto:ed@simplecare.ch">ed@simplecare.ch</a>
       <span>Lavaterstrasse 67, 8002 Zürich</span>
     </div>
-    <p>© 2026 Simplecare.ch AG — Unabhängige Versicherungsberatung Schweiz</p>
-    <p style="margin-top:6px;">Unabhängig · Vertraulich · Kostenlos · Beratung auf Deutsch, Englisch &amp; Russisch</p>
+    <p data-i18n="footer_copyright">© 2026 Simplecare.ch AG — Independent Insurance Consulting Switzerland</p>
+    <p style="margin-top:6px;" data-i18n="footer_tags">Independent · Confidential · Free · Advice in German, English &amp; Russian</p>
   </div>
 </footer>
 
@@ -612,6 +623,20 @@
   // Topic cards <-> form checkboxes: keep selection in sync both ways
   var topicCards = document.querySelectorAll('.topic-card');
   var topicsSummary = document.getElementById('topics-summary');
+
+  var topicValueToKey = {
+    "Versicherungsvergleich aller Policen":"topic_1",
+    "Krankenkassen-Optimierung":"topic_2",
+    "Hausrat- und Privathaftpflichtversicherung":"topic_3",
+    "Rechtsschutzversicherung":"topic_4",
+    "Mietkautionsversicherung":"topic_5",
+    "Reiseversicherung":"topic_6",
+    "Autoversicherung":"topic_7",
+    "Vorsorgeberatung Säule 3a":"topic_8",
+    "Lebensversicherung":"topic_9",
+    "Erwerbsunfähigkeitsversicherung":"topic_10",
+    "Kindersparplan":"topic_11"
+  };
 
   function getCheckboxForTopic(topicValue){
     var checkboxes = document.querySelectorAll('input[name="Themen"]');
@@ -631,12 +656,14 @@
   function updateTopicsSummary(){
     var selected = [];
     document.querySelectorAll('input[name="Themen"]:checked').forEach(function(cb){
-      selected.push(cb.value);
+      var key = topicValueToKey[cb.value];
+      var label = (key && translations[currentLang][key]) ? translations[currentLang][key] : cb.value;
+      selected.push(label);
     });
     if(selected.length === 0){
-      topicsSummary.textContent = 'Noch keine Themen ausgewählt — klicken Sie oben, was Sie interessiert.';
+      topicsSummary.textContent = translations[currentLang].topics_empty;
     } else {
-      topicsSummary.innerHTML = 'Ausgewählt: <strong>' + selected.join(', ') + '</strong>';
+      topicsSummary.innerHTML = translations[currentLang].topics_selected_prefix + ' <strong>' + selected.join(', ') + '</strong>';
     }
   }
 
@@ -672,7 +699,7 @@
     });
   });
 
-  // Family members: show extra fields when "Familie" is selected
+  // Family members: show extra fields when "Family" is selected
   var householdSelect = document.getElementById('household');
   var familySection = document.getElementById('family-section');
   var familyList = document.getElementById('family-members-list');
@@ -692,13 +719,14 @@
     row.className = 'family-member-row';
     row.innerHTML =
       '<div class="family-row-grid">' +
-        '<div class="field"><label>Vorname</label><input type="text" name="Familienmitglied_' + familyIndex + '_Vorname"></div>' +
-        '<div class="field"><label>Nachname</label><input type="text" name="Familienmitglied_' + familyIndex + '_Nachname"></div>' +
-        '<div class="field"><label>Geburtsdatum</label><input type="date" name="Familienmitglied_' + familyIndex + '_Geburtsdatum"></div>' +
+        '<div class="field"><label data-i18n="family_firstname">First Name</label><input type="text" name="Familienmitglied_' + familyIndex + '_Vorname"></div>' +
+        '<div class="field"><label data-i18n="family_lastname">Last Name</label><input type="text" name="Familienmitglied_' + familyIndex + '_Nachname"></div>' +
+        '<div class="field"><label data-i18n="family_dob">Date of Birth</label><input type="date" name="Familienmitglied_' + familyIndex + '_Geburtsdatum"></div>' +
       '</div>' +
-      '<button type="button" class="remove-family-member">Entfernen</button>';
+      '<button type="button" class="remove-family-member" data-i18n="remove_btn">Remove</button>';
     familyList.appendChild(row);
     setFamilyFieldsRequired(row, householdSelect.value === 'Familie');
+    applyTranslations(row);
     row.querySelector('.remove-family-member').addEventListener('click', function(){
       row.remove();
     });
@@ -726,7 +754,7 @@
     formStatus.style.display = 'none';
     var submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Wird gesendet...';
+    submitBtn.textContent = translations[currentLang].sending_text;
 
     var formData = new FormData(form);
 
@@ -737,7 +765,7 @@
     })
     .then(function(response){ return response.json(); })
     .then(function(data){
-      formStatus.textContent = 'Vielen Dank! Ihre Anfrage wurde übermittelt. Wir melden uns in Kürze bei Ihnen.';
+      formStatus.textContent = translations[currentLang].success_msg;
       formStatus.className = 'success';
       form.reset();
       topicCards.forEach(function(card){
@@ -747,14 +775,249 @@
       updateTopicsSummary();
     })
     .catch(function(err){
-      formStatus.textContent = 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ed@simplecare.ch.';
+      formStatus.textContent = translations[currentLang].error_msg;
       formStatus.className = 'error';
     })
     .finally(function(){
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Kostenlose Beratung anfragen';
+      submitBtn.textContent = translations[currentLang].submit_btn;
     });
   });
+
+  // ---- Language switcher (DE / EN) ----
+  var translations = {
+    de: {
+      nav_topics:"Themen", nav_why:"Vorteile", nav_steps:"Ablauf", nav_faq:"FAQ", nav_cta:"Kostenlose Beratung",
+      hero_tagline:"Ihre Zukunft. Meine Mission.",
+      hero_eyebrow:"Kostenlos &amp; unverbindlich",
+      hero_h1:"Die richtige Versicherung für jede Lebenslage",
+      hero_lead:"Ob Krankenkasse, Vorsorge, Fahrzeug, Haftpflicht oder Vorsorgeplanung — bei Simplecare erhalten Sie eine kostenlose, persönliche Beratung genau zu dem Thema, das Sie gerade beschäftigt. Sie entscheiden, worüber wir sprechen.",
+      hero_cta:"Kostenlose Beratung anfragen",
+      hero_meta:"15–30 Min. · Unabhängige Beratung",
+      badge_independent:"Unabhängig", badge_confidential:"Vertraulich", badge_multilingual:"Mehrsprachig",
+
+      topics_tag:"Meine Themen", topics_h2:"Wobei kann ich Sie beraten?",
+      topics_p:"Wählen Sie im Formular unten einfach die Themen aus, die Sie interessieren — eines oder mehrere.",
+      topic_1:"Versicherungsvergleich aller Policen",
+      topic_2:"Krankenkassen-Optimierung",
+      topic_3:"Hausrat- &amp; Privathaftpflichtversicherung",
+      topic_4:"Rechtsschutzversicherung",
+      topic_5:"Mietkautionsversicherung",
+      topic_6:"Reiseversicherung",
+      topic_7:"Autoversicherung",
+      topic_8:"Vorsorgeberatung (Säule 3a)",
+      topic_9:"Lebensversicherung",
+      topic_10:"Erwerbsunfähigkeitsversicherung",
+      topic_11:"Kindersparplan",
+      topics_empty:"Noch keine Themen ausgewählt — klicken Sie oben, was Sie interessiert.",
+      topics_selected_prefix:"Ausgewählt:",
+
+      booking_tag:"Jetzt anfragen", booking_h2:"Fordern Sie Ihre kostenlose Beratung an",
+      booking_p:"Ein Berater meldet sich in Kürze persönlich bei Ihnen.",
+      label_fullname:"Vollständiger Name", label_dob:"Geburtsdatum", label_plz:"Postleitzahl",
+      label_email:"E-Mail-Adresse", label_phone:"Telefonnummer", label_household:"Haushalt",
+      option_single:"Einzelperson", option_family:"Familie",
+      family_legend:"Angaben zu Ihren Familienmitgliedern",
+      add_family_btn:"+ Weiteres Familienmitglied hinzufügen",
+      family_firstname:"Vorname", family_lastname:"Nachname", family_dob:"Geburtsdatum",
+      remove_btn:"Entfernen",
+      topics_legend:"Zu welchem Thema möchten Sie sich beraten lassen? (Mehrfachauswahl möglich)",
+      submit_btn:"Kostenlose Beratung anfragen", sending_text:"Wird gesendet...",
+      form_note:"Ihre Angaben werden ausschliesslich zur Kontaktaufnahme bezüglich Ihrer Versicherungsberatung verwendet und vertraulich behandelt.",
+      success_msg:"Vielen Dank! Ihre Anfrage wurde übermittelt. Wir melden uns in Kürze bei Ihnen.",
+      error_msg:"Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an ed@simplecare.ch.",
+
+      why_tag:"Simplecare", why_h2:"Warum Simplecare?",
+      why_p:"Unabhängig, persönlich und kostenlos — das ist unser Versprechen.",
+      card1_h3:"Unabhängige Beratung",
+      card1_p:"Wir vergleichen Angebote verschiedener Schweizer Versicherer, damit Sie in jedem Bereich eine fundierte Entscheidung treffen können.",
+      card2_h3:"Kostenlose Beratung", card2_p:"Unser Service ist für Sie vollkommen kostenlos.",
+      card3_h3:"Persönliche Betreuung",
+      card3_p:"Sprechen Sie mit einem echten Berater, der Ihre individuelle Situation versteht.",
+      card4_h3:"Unterstützung beim Wechsel",
+      card4_p:"Wir begleiten Sie durch den gesamten Abschluss- oder Wechselprozess — bei jeder Versicherung, die Sie betrifft.",
+      card5_h3:"International &amp; mehrsprachig",
+      card5_p:"Beratung auf Deutsch, Englisch und Russisch — spezialisiert auf Expats und internationale Klienten mit Bedarf an weltweitem Schutz.",
+      card6_h3:"Vertrauenswürdig &amp; vertraulich",
+      card6_p:"Ihre Daten bleiben privat und werden sorgfältig behandelt.",
+
+      partners_p:"Zusammenarbeit mit führenden Schweizer Versicherern", partners_more:"und weitere",
+
+      steps_tag:"Ablauf", steps_h2:"So funktioniert's",
+      steps_p:"Vier einfache Schritte zu mehr Klarheit über Ihre Versicherung.",
+      step1_h3:"Angaben übermitteln", step1_p:"Teilen Sie uns ein paar grundlegende Informationen zu Ihrer Person mit.",
+      step2_h3:"Persönliche Analyse", step2_p:"Einer unserer Berater analysiert Ihre aktuelle Situation.",
+      step3_h3:"Optionen vergleichen", step3_p:"Wir zeigen Ihnen passende Alternativen und mögliches Sparpotenzial.",
+      step4_h3:"Sicher entscheiden", step4_p:"Sie entscheiden, ob Sie bei Ihrem Anbieter bleiben oder wechseln.",
+
+      savings_h2:"Zahlen Sie zu viel — oder fehlt Ihnen Schutz?",
+      savings_p:"Viele Menschen in der Schweiz zahlen für ihre Versicherungen mehr als nötig oder sind in wichtigen Bereichen nicht optimal abgesichert. Eine persönliche Analyse hilft, das zu erkennen — bei jedem Thema, das Sie interessiert.",
+      savings_li1:"Kostenlose Analyse", savings_li2:"Unverbindlich", savings_li3:"Persönliche Beratung",
+      savings_btn:"Mein Sparpotenzial prüfen",
+      advisor_h4:"Ihr persönlicher Berater", advisor_p:"Das Team hinter Simplecare",
+
+      trust_tag:"Vertrauen", trust_h2:"Warum Menschen Simplecare vertrauen",
+      trust_p:"Ein engagiertes Team mit Fokus auf Klarheit, Fairness und die beste Lösung für Ihre Bedürfnisse. Sie sprechen immer mit einer echten Person — nicht mit einem Callcenter.",
+      trust_li1:"Erfahrene Schweizer Versicherungsberater", trust_li2:"Transparente Empfehlungen",
+      trust_li3:"Persönliche Betreuung", trust_li4:"Unterstützung bei Papierkram &amp; Wechsel",
+      trust_li5:"Fokus auf die beste Lösung für Sie",
+
+      faq_tag:"FAQ", faq_h2:"Häufig gestellte Fragen",
+      faq_q1:"Ist die Beratung wirklich kostenlos?",
+      faq_a1:"Ja. Unsere Beratung ist für Sie zu 100% kostenlos und unverbindlich. Wir werden von den Versicherern vergütet, nicht von Ihnen.",
+      faq_q2:"Muss ich meine bestehende Versicherung wechseln?",
+      faq_a2:"Nein. Sie erhalten eine Analyse und Empfehlungen und entscheiden am Ende selbst, ob und wo Sie etwas anpassen möchten.",
+      faq_q3:"Welche Themen deckt Simplecare ab?",
+      faq_a3:"Von Krankenkasse über Hausrat, Haftpflicht und Fahrzeugversicherung bis zu Vorsorge (Säule 3a), Lebensversicherung und mehr — wählen Sie im Anfrageformular einfach die Themen aus, die Sie interessieren.",
+      faq_q4:"Kann ich mehrere Themen gleichzeitig besprechen?",
+      faq_a4:"Ja, wählen Sie im Formular einfach alle relevanten Themen aus. Ihr Berater bereitet die Beratung entsprechend vor.",
+      faq_q5:"Wie lange dauert die Beratung?",
+      faq_a5:"In der Regel 15–30 Minuten pro Thema, telefonisch oder persönlich — ganz nach Ihren Wünschen.",
+
+      final_h2:"Finden Sie heraus, ob Sie sparen können",
+      final_p:"Erhalten Sie eine kostenlose, persönliche Beratung von Simplecare.",
+      final_btn:"Kostenlose Beratung anfragen",
+
+      footer_copyright:"© 2026 Simplecare.ch AG — Unabhängige Versicherungsberatung Schweiz",
+      footer_tags:"Unabhängig · Vertraulich · Kostenlos · Beratung auf Deutsch, Englisch &amp; Russisch",
+
+      page_title:"Simplecare — Ihre unabhängige Versicherungsberatung Schweiz",
+      page_description:"Unabhängige Versicherungsberatung in der Schweiz — von Krankenkasse über Vorsorge bis Fahrzeugversicherung. Kostenlose, persönliche Beratung von Simplecare zum Thema Ihrer Wahl."
+    },
+    en: {
+      nav_topics:"Topics", nav_why:"Why Us", nav_steps:"Process", nav_faq:"FAQ", nav_cta:"Free Consultation",
+      hero_tagline:"Your Future. My Mission.",
+      hero_eyebrow:"Free &amp; no obligation",
+      hero_h1:"The right insurance for every stage of life",
+      hero_lead:"Whether it's health insurance, retirement planning, your vehicle, liability or pension planning — at Simplecare you get a free, personal consultation on exactly the topic that matters to you. You decide what we talk about.",
+      hero_cta:"Request Free Consultation",
+      hero_meta:"15–30 min · Independent advice",
+      badge_independent:"Independent", badge_confidential:"Confidential", badge_multilingual:"Multilingual",
+
+      topics_tag:"My Topics", topics_h2:"What can I help you with?",
+      topics_p:"Simply select the topics that interest you in the form below — one or several.",
+      topic_1:"Insurance comparison across all policies",
+      topic_2:"Health insurance optimization",
+      topic_3:"Household &amp; personal liability insurance",
+      topic_4:"Legal protection insurance",
+      topic_5:"Rental deposit insurance",
+      topic_6:"Travel insurance",
+      topic_7:"Car insurance",
+      topic_8:"Retirement planning (Pillar 3a)",
+      topic_9:"Life insurance",
+      topic_10:"Disability insurance",
+      topic_11:"Children's savings plan",
+      topics_empty:"No topics selected yet — click above what interests you.",
+      topics_selected_prefix:"Selected:",
+
+      booking_tag:"Request now", booking_h2:"Request your free consultation",
+      booking_p:"An advisor will get back to you personally shortly.",
+      label_fullname:"Full Name", label_dob:"Date of Birth", label_plz:"Postal Code",
+      label_email:"Email Address", label_phone:"Phone Number", label_household:"Household",
+      option_single:"Single", option_family:"Family",
+      family_legend:"Details of your family members",
+      add_family_btn:"+ Add another family member",
+      family_firstname:"First Name", family_lastname:"Last Name", family_dob:"Date of Birth",
+      remove_btn:"Remove",
+      topics_legend:"Which topic would you like advice on? (multiple selection possible)",
+      submit_btn:"Request Free Consultation", sending_text:"Sending...",
+      form_note:"Your information is used solely to contact you regarding your insurance consultation and is treated confidentially.",
+      success_msg:"Thank you! Your request has been submitted. We'll get back to you shortly.",
+      error_msg:"An error occurred while sending. Please try again or email us directly at ed@simplecare.ch.",
+
+      why_tag:"Simplecare", why_h2:"Why Simplecare?",
+      why_p:"Independent, personal and free — that's our promise.",
+      card1_h3:"Independent Advice",
+      card1_p:"We compare offers from various Swiss insurers so you can make an informed decision in every area.",
+      card2_h3:"Free Consultation", card2_p:"Our service is completely free for you.",
+      card3_h3:"Personal Support",
+      card3_p:"Speak with a real advisor who understands your individual situation.",
+      card4_h3:"Support with Switching",
+      card4_p:"We guide you through the entire application or switching process — for any insurance that concerns you.",
+      card5_h3:"International &amp; Multilingual",
+      card5_p:"Advice in German, English and Russian — specialized in expats and international clients needing worldwide coverage.",
+      card6_h3:"Trustworthy &amp; Confidential",
+      card6_p:"Your data stays private and is handled with care.",
+
+      partners_p:"Working with leading Swiss insurers", partners_more:"and more",
+
+      steps_tag:"Process", steps_h2:"How it works",
+      steps_p:"Four simple steps to more clarity about your insurance.",
+      step1_h3:"Submit Your Details", step1_p:"Share a few basic details about yourself with us.",
+      step2_h3:"Personal Analysis", step2_p:"One of our advisors analyzes your current situation.",
+      step3_h3:"Compare Options", step3_p:"We show you suitable alternatives and potential savings.",
+      step4_h3:"Decide with Confidence", step4_p:"You decide whether to stay with your provider or switch.",
+
+      savings_h2:"Paying too much — or missing coverage?",
+      savings_p:"Many people in Switzerland pay more than necessary for their insurance or aren't optimally covered in important areas. A personal analysis helps identify this — for any topic that matters to you.",
+      savings_li1:"Free Analysis", savings_li2:"No Obligation", savings_li3:"Personal Advice",
+      savings_btn:"Check My Savings Potential",
+      advisor_h4:"Your Personal Advisor", advisor_p:"The team behind Simplecare",
+
+      trust_tag:"Trust", trust_h2:"Why people trust Simplecare",
+      trust_p:"A dedicated team focused on clarity, fairness and finding the best solution for your needs. You'll always speak with a real person — not a call center.",
+      trust_li1:"Experienced Swiss insurance advisors", trust_li2:"Transparent recommendations",
+      trust_li3:"Personal support", trust_li4:"Assistance with paperwork &amp; switching",
+      trust_li5:"Focus on finding the best solution for you",
+
+      faq_tag:"FAQ", faq_h2:"Frequently Asked Questions",
+      faq_q1:"Is the consultation really free?",
+      faq_a1:"Yes. Our consultation is 100% free and non-binding for you. We are compensated by the insurers, not by you.",
+      faq_q2:"Do I have to switch my existing insurance?",
+      faq_a2:"No. You receive an analysis and recommendations and decide for yourself in the end whether and what to change.",
+      faq_q3:"Which topics does Simplecare cover?",
+      faq_a3:"From health insurance to household, liability and vehicle insurance to retirement planning (Pillar 3a), life insurance and more — simply select the topics that interest you in the request form.",
+      faq_q4:"Can I discuss multiple topics at once?",
+      faq_a4:"Yes, simply select all relevant topics in the form. Your advisor will prepare the consultation accordingly.",
+      faq_q5:"How long does the consultation take?",
+      faq_a5:"Usually 15–30 minutes per topic, by phone or in person — whatever suits you best.",
+
+      final_h2:"Find out if you could be saving",
+      final_p:"Get a free, personal consultation from Simplecare.",
+      final_btn:"Request Free Consultation",
+
+      footer_copyright:"© 2026 Simplecare.ch AG — Independent Insurance Consulting Switzerland",
+      footer_tags:"Independent · Confidential · Free · Advice in German, English &amp; Russian",
+
+      page_title:"Simplecare — Your Independent Insurance Consulting Switzerland",
+      page_description:"Independent insurance consulting in Switzerland — from health insurance to retirement planning to vehicle insurance. Free, personal consultation from Simplecare on the topic of your choice."
+    }
+  };
+
+  var currentLang = 'en';
+
+  function applyTranslations(root){
+    var scope = root || document;
+    var dict = translations[currentLang] || translations.en;
+    scope.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined){ el.innerHTML = dict[key]; }
+    });
+  }
+
+  function setLanguage(lang){
+    currentLang = translations[lang] ? lang : 'en';
+    document.documentElement.lang = currentLang;
+    document.title = translations[currentLang].page_title;
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if(metaDesc){ metaDesc.setAttribute('content', translations[currentLang].page_description); }
+    applyTranslations(document);
+    document.querySelectorAll('.lang-btn').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+    });
+    updateTopicsSummary();
+    try{ localStorage.setItem('simplecare_lang', currentLang); }catch(e){}
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){ setLanguage(btn.getAttribute('data-lang')); });
+  });
+
+  (function(){
+    var saved = null;
+    try{ saved = localStorage.getItem('simplecare_lang'); }catch(e){}
+    setLanguage(saved || 'en');
+  })();
 </script>
 
 </body>

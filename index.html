@@ -402,9 +402,18 @@
 
         <div class="family-section" id="family-section">
           <fieldset>
-            <legend data-i18n="family_legend">Details of your family members</legend>
-            <div id="family-members-list"></div>
-            <button type="button" class="btn-add" id="add-family-member" data-i18n="add_family_btn">+ Add another family member</button>
+            <legend data-i18n="family_legend">How many family members live with you?</legend>
+            <div class="field">
+              <label for="family-count" data-i18n="family_count_label">Additional family members (besides you)</label>
+              <select id="family-count" name="Weitere_Familienmitglieder">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6+">6+</option>
+              </select>
+            </div>
           </fieldset>
         </div>
 
@@ -713,51 +722,20 @@
     });
   });
 
-  // Family members: show extra fields when "Family" is selected
+  // Family members: show a simple count field when "Family" is selected
   var householdSelect = document.getElementById('household');
   var familySection = document.getElementById('family-section');
-  var familyList = document.getElementById('family-members-list');
-  var addFamilyBtn = document.getElementById('add-family-member');
-  var familyIndex = 0;
-
-  function setFamilyFieldsRequired(row, required){
-    row.querySelectorAll('input').forEach(function(input){
-      if(required){ input.setAttribute('required', 'required'); }
-      else { input.removeAttribute('required'); }
-    });
-  }
-
-  function createFamilyRow(){
-    familyIndex++;
-    var row = document.createElement('div');
-    row.className = 'family-member-row';
-    row.innerHTML =
-      '<div class="family-row-grid">' +
-        '<div class="field"><label data-i18n="family_firstname">First Name</label><input type="text" name="Familienmitglied_' + familyIndex + '_Vorname"></div>' +
-        '<div class="field"><label data-i18n="family_lastname">Last Name</label><input type="text" name="Familienmitglied_' + familyIndex + '_Nachname"></div>' +
-        '<div class="field"><label data-i18n="family_dob">Date of Birth</label><input type="date" name="Familienmitglied_' + familyIndex + '_Geburtsdatum"></div>' +
-      '</div>' +
-      '<button type="button" class="remove-family-member" data-i18n="remove_btn">Remove</button>';
-    familyList.appendChild(row);
-    setFamilyFieldsRequired(row, householdSelect.value === 'Familie');
-    applyTranslations(row);
-    row.querySelector('.remove-family-member').addEventListener('click', function(){
-      row.remove();
-    });
-  }
+  var familyCountSelect = document.getElementById('family-count');
 
   householdSelect.addEventListener('change', function(){
     if(this.value === 'Familie'){
       familySection.style.display = 'block';
-      if(familyList.children.length === 0){ createFamilyRow(); }
-      familyList.querySelectorAll('.family-member-row').forEach(function(row){ setFamilyFieldsRequired(row, true); });
+      familyCountSelect.setAttribute('required', 'required');
     } else {
       familySection.style.display = 'none';
-      familyList.querySelectorAll('.family-member-row').forEach(function(row){ setFamilyFieldsRequired(row, false); });
+      familyCountSelect.removeAttribute('required');
     }
   });
-
-  addFamilyBtn.addEventListener('click', createFamilyRow);
 
   // Booking form submission via FormSubmit.co AJAX endpoint
   var form = document.getElementById('booking-form');
@@ -831,10 +809,8 @@
       label_fullname:"Vollständiger Name", label_dob:"Geburtsdatum", label_plz:"Postleitzahl",
       label_email:"E-Mail-Adresse", label_phone:"Telefonnummer", label_household:"Haushalt",
       option_single:"Einzelperson", option_family:"Familie",
-      family_legend:"Angaben zu Ihren Familienmitgliedern",
-      add_family_btn:"+ Weiteres Familienmitglied hinzufügen",
-      family_firstname:"Vorname", family_lastname:"Nachname", family_dob:"Geburtsdatum",
-      remove_btn:"Entfernen",
+      family_legend:"Wie viele Familienmitglieder wohnen bei Ihnen?",
+      family_count_label:"Weitere Familienmitglieder (ausser Ihnen)",
       topics_legend:"Zu welchem Thema möchten Sie sich beraten lassen? (Mehrfachauswahl möglich)",
       submit_btn:"Kostenlose Beratung anfragen", sending_text:"Wird gesendet...",
       form_note:"Ihre Angaben werden ausschliesslich zur Kontaktaufnahme bezüglich Ihrer Versicherungsberatung verwendet und vertraulich behandelt.",
@@ -929,10 +905,8 @@
       label_fullname:"Full Name", label_dob:"Date of Birth", label_plz:"Postal Code",
       label_email:"Email Address", label_phone:"Phone Number", label_household:"Household",
       option_single:"Single", option_family:"Family",
-      family_legend:"Details of your family members",
-      add_family_btn:"+ Add another family member",
-      family_firstname:"First Name", family_lastname:"Last Name", family_dob:"Date of Birth",
-      remove_btn:"Remove",
+      family_legend:"How many family members live with you?",
+      family_count_label:"Additional family members (besides you)",
       topics_legend:"Which topic would you like advice on? (multiple selection possible)",
       submit_btn:"Request Free Consultation", sending_text:"Sending...",
       form_note:"Your information is used solely to contact you regarding your insurance consultation and is treated confidentially.",
